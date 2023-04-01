@@ -1,0 +1,12 @@
+# Ignore the config.js file that contains the API key
+config.js
+
+# Ignore any other configuration files
+*.config
+
+# Ignore the node_modules directory
+node_modules/
+
+# Ignore any build artifacts
+build/
+dist/

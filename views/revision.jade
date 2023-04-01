@@ -1,0 +1,17 @@
+extends header
+
+block content
+  div.container
+    div.row
+      h1 Paragraph Revision
+    div.row
+        div.col-md-6
+          form(action="/revision/generate-revision", method="post")
+            label(for="textbox") Enter your sentences:  
+            br
+            textarea.form-control(name="input", rows="10", cols="50") #{input}
+            br
+            button.btn.btn-primary(type="submit") Generate
+        div.col-md-6
+          label(for="textbox") Revised Version:     
+          textarea.form-control(name="output", rows="10", cols="50", readonly="readonly") #{output}

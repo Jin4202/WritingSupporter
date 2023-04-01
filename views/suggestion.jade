@@ -1,0 +1,19 @@
+extends header
+
+block content
+  div.container
+    div.row
+        h1 Suggestion Page
+    div.row
+      div.col-md-6
+        form(action="/suggestion/generate-suggestion", method="POST")
+          .form-group
+            label(for="keywords") Enter the set of keywords (comma separated):
+            input.form-control(type="text", id="keywords", name="keywords")
+          .form-group
+            label(for="paragraph") Enter the paragraph:
+            textarea.form-control(id="paragraph", name="paragraph", rows="5")
+          button.btn.btn-primary(type="submit") Generate Ideas
+      div.col-md-6
+        label(for="pre") Output:
+        pre #{output}

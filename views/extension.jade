@@ -1,0 +1,20 @@
+extends header
+
+block content
+  div.container
+    div.row
+      h1 Extension Page
+    div.row
+      div.col-md-6
+        form(action="/extension/generate-extension", method="post")        
+          label(for="textbox") Enter your sentences:   
+          br   
+          textarea.form-control(id="textbox", name="input", rows="10", cols="50") #{input}
+          br
+          button.btn.btn-primary(type="submit") See next lines
+      div.col-md-6
+        label(for="pre") Recommending Sentences:
+        pre 
+          ul
+            each line in lines
+              li= line
