@@ -5,13 +5,15 @@ block content
     div.row
       h1 Paragraph Revision
     div.row
-        div.col-md-6
-          form(action="/revision/generate-revision", method="post")
-            label(for="textbox") Enter your sentences:  
-            br
-            textarea.form-control(name="input", rows="10", cols="50") #{input}
-            br
-            button.btn.btn-primary(type="submit") Generate
-        div.col-md-6
-          label(for="textbox") Revised Version:     
-          textarea.form-control(name="output", rows="10", cols="50", readonly="readonly") #{output}
+      div.col-md-6
+        form(action="/revision/generate-revision", method="post")        
+          label(for="textbox") Enter your sentences:
+          textarea.form-control(name="input", rows="10", cols="50") #{input}
+          br
+          button.btn.btn-primary(type="submit", name="btn_generate_revision", value="revise") Generate Revision
+          select.form-control(name="option")
+            option(value="small") Small Revision
+            option(value="professional") Professional Revision
+      div.col-md-6
+        label(for="textbox") Revised Version:
+        textarea.form-control(name="output", rows="10", cols="50", readonly="readonly") #{output}

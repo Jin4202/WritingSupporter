@@ -9,12 +9,12 @@ block content
         form(action="/extension/generate-extension", method="post")        
           label(for="textbox") Enter your sentences:   
           br   
-          textarea.form-control(id="textbox", name="input", rows="10", cols="50") #{input}
+          textarea.form-control(id="textbox", name="input", rows="15", cols="50") #{input}
           br
           button.btn.btn-primary(type="submit") See next lines
       div.col-md-6
         label(for="pre") Recommending Sentences:
-        pre 
-          ul
+        textarea.form-control(id="output", rows="15", cols="50", readonly="readonly")
             each line in lines
-              li= line
+              | • #{line}
+

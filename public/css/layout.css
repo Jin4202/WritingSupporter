@@ -1,3 +1,18 @@
+.textarea-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .navbar-default {
   background-color: #68c96c;
   border-color: #8dd28f;

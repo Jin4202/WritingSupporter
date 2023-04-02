@@ -5,13 +5,18 @@ const getAIResponse = require('../api/openai');
 router.get('/', function(req, res, next) {
     res.render('extension', { input: "", lines: "" });
 });
+const instruction_extension = input => {
+    const instruction = "Provide the list of subsequent sentences for the given paragraph.";
+    const condition = "Condition: [Separate the each paragraph by * ]";
+    const result = "The list list of subsequent sentences for the paragraph: ";
+    const prompt = instruction + "\n" + condition + "\n" + result + "\n" + input;
+    return prompt;
+};
 
 router.post('/generate-extension', async (req, res) => {
     const input = req.body.input;
-    const instruction = "From the following paragraph, can I have several options that would be the next sentences of the paragraph. Separate the each options by '*'. \n";
-    const prompt = instruction + input;
+    const prompt = instruction_extension(input);
     const output = await getAIResponse(prompt);
-    console.log(output);
     const lines = output.split('*');
     const lines_s = lines.slice(1);
     res.render('extension', { input: input, lines: lines_s });
